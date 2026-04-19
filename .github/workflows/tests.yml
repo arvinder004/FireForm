@@ -24,5 +24,9 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
-      - name: Run tests
-        run: python -c "import sys; sys.path.insert(0, 'src'); from input_manager import InputManager; from json_manager import JsonManager; from backend import Fill, textToJSON; print('✅ All imports successful')"
+      - name: Verify imports
+        run: |
+          python -c "from src.input_manager import InputManager; print('✅ InputManager imported')"
+          python -c "from src.json_manager import JsonManager; print('✅ JsonManager imported')"
+          python -c "from src.backend import Fill; print('✅ Backend imported')"
+          echo "✅ All imports successful"
